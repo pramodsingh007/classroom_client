@@ -78,6 +78,23 @@ const LoginForm = ({ onLogin }) => {
             Login
           </Button>
         </form>
+
+        <h1 className=" font-bold">Demo Accounts</h1>
+       <div className=" space-y-3">
+       <div>
+          <p><span className=" font-bold">Admin</span> Email:- principal@classroom.com</p>
+          <p>password:- Admin</p>
+          
+        </div>
+        <div>
+          <p><span className=" font-bold">Teacher</span> Email:- teacher1@gmail.com</p>
+          <p>password:- 123456</p>
+        </div>
+        <div>
+          <p><span className="font-bold">Student</span> Email:- student1@gmail.com</p>
+          <p>password:- 123456</p>
+        </div>
+       </div>
       </Paper>
     </div>
   );
