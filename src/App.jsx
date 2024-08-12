@@ -51,7 +51,7 @@ function App() {
               </ProtectedRoute>
             }
           />
-          <Route path="/login" element={<LoginPage onLogin={handleLogin} />} />
+          <Route path="/" element={<LoginPage onLogin={handleLogin} />} />
         </Routes>
       </BrowserRouter>
     </ThemeProvider>
