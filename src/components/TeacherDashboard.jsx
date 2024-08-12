@@ -74,7 +74,7 @@ const TeacherDashboard = () => {
       .then((res) => {
         console.log(res.data);
         setClassrooms(res.data);
-        setTimetables(res.data[0]?.schedule)
+        setTimetables(res.data[0]?.schedule);
       })
       .catch((err) => {
         console.log(err);
@@ -246,7 +246,7 @@ const TeacherDashboard = () => {
         toast("Timetable created!");
       })
       .catch((e) => {
-        setError('TimeTable out of times')
+        setError("TimeTable out of times");
         console.log(e);
       });
   };
@@ -363,7 +363,6 @@ const TeacherDashboard = () => {
                     >
                       Create Timetable
                     </Button>
-                   
                   </TableCell>
                 </TableRow>
               ))}
@@ -423,7 +422,6 @@ const TeacherDashboard = () => {
                 type="time"
                 name="timeStart"
                 fullWidth
-                
                 variant="outlined"
                 value={newTimetable.timeStart}
                 onChange={handleNewTimetableChange}
@@ -451,13 +449,20 @@ const TeacherDashboard = () => {
                 value={newTimetable.day}
                 onChange={handleNewTimetableChange}
               >
-                {classrooms.map((classroom) => (
-                  <MenuItem key={classroom._id} value={classroom.day}>
-                    {classroom.day}
+                {[
+                  "Monday",
+                  "Tuesday",
+                  "Wednesday",
+                  "Thursday",
+                  "Friday",
+                  "Saturday",
+                ].map((day,key) => (
+                  <MenuItem key={key} value={day}>
+                    {day}
                   </MenuItem>
                 ))}
               </TextField>
-              {error&&<p className="text-red-500 font-medium">{error}</p>}
+              {error && <p className="text-red-500 font-medium">{error}</p>}
             </Grid>
           </Grid>
         </DialogContent>
@@ -632,7 +637,6 @@ const TeacherDashboard = () => {
                   </MenuItem>
                 ))}
               </TextField> */}
-              
             </>
           )}
         </DialogContent>

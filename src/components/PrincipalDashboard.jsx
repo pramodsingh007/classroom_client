@@ -131,7 +131,7 @@ const PrincipalDashboard = () => {
         )
         .then((res) => {
           console.log(res.data);
-          toast("teacher updated successfully!")
+          toast("teacher updated successfully!");
           setTeachers(
             teachers.map((teacher) =>
               teacher._id === editData._id ? editData : teacher
@@ -426,14 +426,14 @@ const PrincipalDashboard = () => {
                   <TableCell>{teacher.classroomName}</TableCell>
                   <TableCell>
                     <IconButton
-                    color="primary"
+                      color="primary"
                       className="mr-2"
                       onClick={() => handleEditOpen("teacher", teacher)}
                     >
                       <Edit />
                     </IconButton>
                     <IconButton
-                    color="secondary"
+                      color="secondary"
                       onClick={() => handleDeleteOpen("teacher", teacher._id)}
                     >
                       <Delete />
@@ -486,11 +486,14 @@ const PrincipalDashboard = () => {
                   <TableCell>{student.email}</TableCell>
                   <TableCell>{student.classroomName}</TableCell>
                   <TableCell>
-                    <IconButton color="primary" onClick={() => handleEditOpen("student", student)}>
+                    <IconButton
+                      color="primary"
+                      onClick={() => handleEditOpen("student", student)}
+                    >
                       <Edit />
                     </IconButton>
                     <IconButton
-                    color="secondary"
+                      color="secondary"
                       onClick={() => handleDeleteOpen("student", student._id)}
                     >
                       <Delete />
@@ -526,8 +529,6 @@ const PrincipalDashboard = () => {
                 <TableCell>Name</TableCell>
                 <TableCell>Start Time</TableCell>
                 <TableCell>End Time</TableCell>
-                <TableCell>Day</TableCell>
-                
                 <TableCell>Actions</TableCell>
               </TableRow>
             </TableHead>
@@ -537,18 +538,18 @@ const PrincipalDashboard = () => {
                   <TableCell>{classroom.name}</TableCell>
                   <TableCell>{classroom.startTime}</TableCell>
                   <TableCell>{classroom.endTime}</TableCell>
-                  <TableCell>{classroom.day}</TableCell>
-                
+                 
+
                   <TableCell>
                     <IconButton
-                    color="primary"
+                      color="primary"
                       className="mr-2"
                       onClick={() => handleEditOpen("classroom", classroom)}
                     >
                       <Edit />
                     </IconButton>
                     <IconButton
-                    color="secondary"
+                      color="secondary"
                       onClick={() =>
                         handleDeleteOpen("classroom", classroom._id)
                       }
@@ -604,30 +605,6 @@ const PrincipalDashboard = () => {
                   setEditData({ ...editData, endTime: e.target.value })
                 }
               />
-              <TextField
-                margin="dense"
-                label="Day"
-                fullWidth
-                select
-                variant="outlined"
-                value={editData?.day || ""}
-                onChange={(e) =>
-                  setEditData({ ...editData, day: e.target.value })
-                }
-              >
-                {[
-                "Monday",
-                "Tuesday",
-                "Wednesday",
-                "Thursday",
-                "Friday",
-                "Saturday",
-              ].map((day) => (
-                  <MenuItem key={day} value={day}>
-                    {day}
-                  </MenuItem>
-                ))}
-              </TextField>
             </>
           ) : (
             <>
@@ -723,29 +700,7 @@ const PrincipalDashboard = () => {
               setNewClassroom({ ...newClassroom, name: e.target.value })
             }
           />
-          <FormControl fullWidth margin="dense">
-            <InputLabel id="weekday-label">Day</InputLabel>
-            <Select
-              labelId="weekday-label"
-              value={newClassroom.weekday}
-              onChange={(e) =>
-                setNewClassroom({ ...newClassroom, day: e.target.value })
-              }
-            >
-              {[
-                "Monday",
-                "Tuesday",
-                "Wednesday",
-                "Thursday",
-                "Friday",
-                "Saturday",
-              ].map((day) => (
-                <MenuItem key={day} value={day}>
-                  {day}
-                </MenuItem>
-              ))}
-            </Select>
-          </FormControl>
+
           <TextField
             margin="dense"
             label="Start Time"
@@ -768,23 +723,6 @@ const PrincipalDashboard = () => {
               setNewClassroom({ ...newClassroom, endTime: e.target.value })
             }
           />
-          {/* <TextField
-            margin="dense"
-            label="Teacher"
-            fullWidth
-            select
-            variant="outlined"
-            value={newClassroom.teacherName}
-            onChange={(e) =>
-              setNewClassroom({ ...newClassroom, teacherName: e.target.value })
-            }
-          >
-            {teachers.map((teacher) => (
-              <MenuItem key={teacher._id} value={teacher.name}>
-                {teacher.name}
-              </MenuItem>
-            ))}
-          </TextField> */}
         </DialogContent>
         <DialogActions>
           <Button onClick={handleCreateClassroomClose} color="primary">
