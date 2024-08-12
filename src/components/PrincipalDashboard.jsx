@@ -20,9 +20,7 @@ import {
   Select,
   IconButton,
 } from "@mui/material";
-import Timetable from "./Timetable";
 import { Delete, Edit } from "@mui/icons-material";
-import CreateNewStudent from "./CreateNewStudent";
 import StudentCreationModal from "./CreateNewStudent";
 import TeacherCreationModal from "./CreateNewTeacher";
 import axios from "axios";
